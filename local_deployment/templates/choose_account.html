@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Choose Account and Property</title>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            padding: 20px;
+            font-family: 'Roboto', sans-serif;
+            background-color: #f4f4f4; 
+        }
+        h1 {
+            text-align: center;
+            color: #1a1a1a; 
+        }
+        form {
+            max-width: 500px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: white;
+            border-radius: 4px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
+            text-align: center;
+        }
+        select, input[type="submit"] {
+            width: 100%;
+            padding: 10px;
+            margin-top: 10px; 
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box; 
+        }
+        input[type="submit"] {
+            background-color: #4285f4; 
+            color: white;
+            cursor: pointer;
+            border: none;
+        }
+        input[type="submit"]:hover {
+            background-color: #357ae8; 
+        }
+    </style>
+</head>
+<body>
+    <h1>Choose an Account and Property</h1>
+    
+    <form action="/choose-account" method="post">
+        <!-- Account Dropdown -->
+        <select name="account" onchange="this.form.submit()">
+            <option value="">Select an account</option>
+            {% for account in accounts %}
+            <option value="{{ account['Account ID'] }}" {% if account['Account ID'] == selected_account_id %}selected{% endif %}>
+                {{ account['Account Name'] }}
+            </option>
+            {% endfor %}
+        </select>
+
+        <!-- Property Dropdown -->
+        <select name="property">
+            <option value="">Select a property</option> 
+            {% for property in properties %}
+            <option value="{{ property['Property ID'] }}">{{ property['Property Name'] }}</option>
+            {% endfor %}
+        </select>
+
+        <input type="submit" value="Submit">
+    </form>
+    <script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const accountSelect = document.querySelector('select[name="account"]');
+        const propertySelect = document.querySelector('select[name="property"]');
+        const form = document.querySelector('form');
+    
+        // Function to update form action
+        function updateFormAction() {
+            if(accountSelect.value && propertySelect.value) {
+                form.action = "{{ url_for('handle_selection') }}";
+            }
+        }
+    
+        // Listen for changes on both dropdowns
+        accountSelect.addEventListener('change', updateFormAction);
+        propertySelect.addEventListener('change', updateFormAction);
+    });
+    </script>
+</body>
+</html>

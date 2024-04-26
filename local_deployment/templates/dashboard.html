@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap" rel="stylesheet">
+    <title>Dashboard</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            position: relative;
+            background-color: #f8f8f8;
+        }
+        h1 {
+            font-family: 'Roboto', sans-serif;
+            text-align: center;
+            margin: 5px;
+        }
+        p {
+           font-family: 'Roboto', sans-serif;
+           text-align: center;
+           margin-top: 5px;
+           margin-bottom: 20px;
+        }
+        .container {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+        }
+        .chart-container {
+            flex-basis: 48%; 
+            box-sizing: border-box;
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
+        canvas {
+            width: 100% !important;
+            height: auto !important;
+        }
+        .form-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .form-container form {
+            display: flex;
+            align-items: center; 
+        }
+        .form-container label {
+            margin-right: 10px;
+        }
+        input[type="number"], button {
+            padding: 10px;
+            margin: 0; 
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            background-color: #f4f4f4;
+            color: #0e0e0e;
+        }
+        input[type="number"] {
+            margin-right: 5px; 
+        }
+        .forecast-button {
+            padding: 10px 20px; 
+            background-color: #f4f4f4; 
+            color: #0e0e0e;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .forecast-button:hover {
+            background-color: #dadada;
+        }
+        button {
+            cursor: pointer;
+        }
+        .go-back-button {
+            display: block;
+            text-align: center;
+            margin-top: 20px;
+        }
+        .go-back-button button {
+            background-color: #f4f4f4;
+            color: #0e0e0e;
+        }
+        .go-back-button button:hover {
+            background-color: #dadada; 
+        }
+        .logout-button {
+            position: absolute;
+            top: 0;
+            right: 0;
+            margin: 10px;
+        }
+        .logout-button button{
+            background-color: #f4f4f4; 
+            color: #0e0e0e;
+        }
+        .logout-button button:hover {
+            background-color: #dadada; 
+        }
+       /* test */ 
+    </style>
+</head>
+<body>
+    <div class="logout-button">
+        <!-- Button to logout -->
+        <a href="{{ url_for('logout') }}"><button>Logout</button></a>
+    </div>
+    <h1>Welcome to the GA4 Session Predictor</h1>
+    <p>Choose a number of days to forecast to see the number of forecasted daily sessions displayed</p>
+    
+    <div class="form-container">
+        <form action="/dashboard" method="get">
+            <label for="forecast_days">Days to Forecast:</label>
+            <input type="number" id="forecast_days" name="forecast_days" min="1" value="{{ request.args.get('forecast_days', '') }}">
+            <input type="submit" value="Forecast" class="forecast-button">
+        </form>
+    </div>
+    
+    <div class="container">
+        <div class="chart-container">
+            <canvas id="dailySessionsChart"></canvas>
+        </div>
+        <div class="chart-container">
+            <canvas id="forecastedSessionsChart"></canvas>
+        </div>
+    </div>
+    <div class="go-back-button">
+        <!-- Button to go back to account and property selection -->
+        <a href="/choose-account"><button>Choose another property</button></a>
+    </div>
+    
+    <script>
+    const ctx = document.getElementById('dailySessionsChart').getContext('2d');
+    const dailySessionsChart = new Chart(ctx, {
+        type: 'line', // Type of chart
+        data: {
+            labels: [{% for session in daily_sessions %}'{{ session.Date.strftime('%Y-%m-%d') }}',{% endfor %}], 
+            datasets: [{
+                label: 'Daily Sessions',
+                data: [{% for session in daily_sessions %}{{ session.Sessions }},{% endfor %}], 
+                backgroundColor: 'rgba(255, 99, 132, 0.2)',
+                borderColor: 'rgba(255, 99, 132, 1)',
+                borderWidth: 1
+            }]
+        },
+        options: {
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            }
+        }
+    });
+    
+    const forecastCtx = document.getElementById('forecastedSessionsChart').getContext('2d');
+    const forecastedSessionsChart = new Chart(forecastCtx, {
+        type: 'line',
+        data: {
+            labels: [{% for session in forecasted_sessions %}'{{ session.Date.strftime('%Y-%m-%d') }}',{% endfor %}],
+            datasets: [{
+                label: 'Forecasted Sessions',
+                data: [{% for session in forecasted_sessions %}{{ session.Sessions }},{% endfor %}],
+                backgroundColor: 'rgba(54, 162, 235, 0.2)',
+                borderColor: 'rgba(54, 162, 235, 1)',
+                borderWidth: 1
+            }]
+        },
+        options: {
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            }
+        }
+    });
+
+    </script>
+
+</body>
+</html>
