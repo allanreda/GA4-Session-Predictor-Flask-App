@@ -51,9 +51,23 @@ Lastly, the script contains a section for cross validation, which can be adjuste
 </table>
 
 ### local_deployment (folder for the Flask app script)
+The folder contains both the backend of the Flask app, in the form of the app.py file, and the frontend the app, in the form of the three templates in the "templates" folder.  
+All together they make up the three components that makes up the app itself.  
+The first part is the login which activates the OAuth flow which allows for the user to log in to the Google account that has access to the desired GA4 account(s).  
+The second part is where the user gets to choose the desired GA4 account and property, from which the historical sessions will be pulled.  
+The third and most important part, is where the user will see the historical daily sessions displayed on the left chart and have the opportunity to choose a number of days to forecast. The forecasted daily sessions will then be displayed in the right chart.
 
+## Technologies  
+The project is built using:  
+-Flask for building and interactive interface  
+-The Google Analytics Admin API (v1alpha) for accessing available GA4 accounts and properties  
+-The Google Analytics 4 API for pulling historical number of daily sessions  
+-Prophet for model creation, time series forecasting and cross validation  
+-Matplotlib for visualisation  
+-Pandas for data manipulation
 
-## Technologies
+## Goal
+The aim of this project is to empower Danish GA4 users and website owners to forecast daily session counts and understand the impact of seasons, holidays, and vacations on web traffic. The project provides a user-friendly interface that can be deployed locally and used to anticipate future traffic. Additionally, it offers a straightforward method for comprehending historical web traffic patterns and their determinants.
 
 
 
