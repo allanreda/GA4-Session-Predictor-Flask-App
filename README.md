@@ -69,9 +69,3 @@ The project is built using:
 ## Goal
 The aim of this project is to empower Danish GA4 users and website owners to forecast daily session counts and understand the impact of seasons, holidays, and vacations on web traffic. The project provides a user-friendly interface that can be deployed locally and used to anticipate future traffic. Additionally, it offers a straightforward method for comprehending historical web traffic patterns and their determinants.
 
-
-
-
-
-
-## Goal
