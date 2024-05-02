@@ -3,7 +3,7 @@
 https://github.com/allanreda/GA_Flask_App/assets/89948110/dd031df6-63fe-4ad8-8ec8-f146c2ff6b3f  
   
 ## Overview
-This repository firstly, contains a standalone script for testing local app functionalities, model parameter adjustment and model validation. This script also allows for visualizing forecasts and seasonality/holiday effects. Secondly, this repository contains both the backend and frontend for a Flask app that can predict the number of daily website sessions measured in GA4, based on historical data. The idea behind the setup of the repository being that one can adjust and test the model parameters, until it performs at a satisfactory level on the data of the desired GA4 property. The model can then be applied in the backend of the Flask app, which ultimately provides the perfect tool for predicting your daily GA4 sessions.
+This repository firstly, contains a standalone script for testing local app functionalities, model parameter adjustment and model validation. This script also allows for visualizing forecasts and seasonality/holiday effects. Secondly, this repository contains both the backend and frontend for a Flask app that can predict the number of daily website sessions measured in GA4, based on historical data. The idea behind the setup of the repository being that one can adjust and test the model parameters, until it performs at a satisfactory level on the data of the desired GA4 property. The model can then be applied in the backend of the Flask app, which ultimately provides a solid tool for predicting your daily GA4 sessions.
 
 ## Functionality
 
