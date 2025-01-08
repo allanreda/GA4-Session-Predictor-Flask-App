@@ -41,12 +41,12 @@ Lastly, the script contains a section for cross validation, which can be adjuste
 
 <table>
   <tr>
-    <td><img src="https://github.com/allanreda/GA_Flask_App/assets/89948110/0778b091-8c8c-484c-94d1-2bd6b453855f" alt="Image 1" width="300"/></td>
-    <td><img src="https://github.com/allanreda/GA_Flask_App/assets/89948110/86dd8e57-0cb6-4e31-9b53-d3741d2e0a42" alt="Image 2" width="300"/></td>
+    <td><img src="https://github.com/user-attachments/assets/7dfe419a-4da1-431f-b279-6668995156d0" alt="Image 1" width="300"/></td>
+    <td><img src="https://github.com/user-attachments/assets/a54c9033-debe-4551-b763-eba667dc3137" alt="Image 2" width="300"/></td>
   </tr>
   <tr>
-    <td><img src="https://github.com/allanreda/GA_Flask_App/assets/89948110/071ed5bb-c9d5-42b4-a3c9-4eaa93a279c4" alt="Image 3" width="300"/></td>
-    <td><img src="https://github.com/allanreda/GA_Flask_App/assets/89948110/f1518ef9-45e9-47c4-a7cf-432dd9881ab2" alt="Image 4" width="300"/></td>
+    <td><img src="https://github.com/user-attachments/assets/3c9a13ca-d3d9-4a20-a337-576292f7f7f3" alt="Image 3" width="300"/></td>
+    <td><img src="https://github.com/user-attachments/assets/1b18bc15-051f-43c9-9a43-7906d2d412af" alt="Image 4" width="300"/></td>
   </tr>
 </table>
 
