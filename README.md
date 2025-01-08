@@ -1,7 +1,7 @@
 # GA4 Session Predictor
 
-https://github.com/allanreda/GA_Flask_App/assets/89948110/dd031df6-63fe-4ad8-8ec8-f146c2ff6b3f  
-  
+https://github.com/user-attachments/assets/45758ce1-fea8-4119-858a-56f9a88849d2  
+
 ## Overview
 This repository firstly, contains a standalone script for testing local app functionalities, model parameter adjustment and model validation. This script also allows for visualizing forecasts and seasonality/holiday effects. Secondly, this repository contains both the backend and frontend for a Flask app that can predict the number of daily website sessions measured in GA4, based on historical data. The idea behind the setup of the repository being that one can adjust and test the model parameters, until it performs at a satisfactory level on the data of the desired GA4 property. The model can then be applied in the backend of the Flask app, which ultimately provides a solid tool for predicting your daily GA4 sessions.
 
@@ -21,19 +21,19 @@ model = Prophet(growth = 'logistic',
 The forecasts of the model can then be visualized, together with its seasonality/holiday effects.  
 
 #### Example of plotted historical and forecasted daily sessions:  
-![image](https://github.com/allanreda/GA_Flask_App/assets/89948110/569e8b9b-4f99-49e8-bc7b-c1f4fd9c6b60)
+![image](https://github.com/user-attachments/assets/abf4e0f1-36ed-467d-a53d-99f43468fb19)  
   
 #### Example of plotted forecasted daily sessions only:  
-![image](https://github.com/allanreda/GA_Flask_App/assets/89948110/8f3dd978-ae7d-484f-805b-b4ba1daa033b)
+![image](https://github.com/user-attachments/assets/add48a6c-8c2c-43df-8fd1-93102a09859d)  
 
 #### Example of plotted holiday effects:  
-![image](https://github.com/allanreda/GA_Flask_App/assets/89948110/10aae05c-f7a9-4690-bef9-d785cf9117ea)  
+![image](https://github.com/user-attachments/assets/ed46beb7-7b6b-47a0-a5b4-980969319f41)   
 
 #### Example of plotted seasonality effects:  
-![image](https://github.com/allanreda/GA_Flask_App/assets/89948110/4e597bef-072e-43c0-9389-66b89fa5a6ae)
+![image](https://github.com/user-attachments/assets/2cdab991-350b-459a-a813-22b99c6fc987)  
 
 #### Example of plotted weekly effects:  
-![image](https://github.com/allanreda/GA_Flask_App/assets/89948110/2889c825-7bd0-4d4e-b03b-0d88dbae2d0e)  
+![image](https://github.com/user-attachments/assets/b2cfbb44-5fc2-4ee8-8dc1-9f72f37ac089)  
   
 #### Example of plotted average model performance metrics  
 
